@@ -27,18 +27,14 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <div>sdfsd</div>
         <Switch>
-          <Route exact path="/" component={Home}>
-            <Route path="/about" component={About} />
-            <Route path="/inbox" component={Inbox} />
-          </Route>
-
+          <Route exact path="/" component={Home} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/inbox" component={Inbox} />
         </Switch>
       </Router>
     )
   }
-
 
 
 }
