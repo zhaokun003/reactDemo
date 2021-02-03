@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { ListView } from 'antd-mobile';
-// import { StickyContainer, Sticky } from 'react-sticky'; //吸顶
+import { StickyContainer, Sticky } from 'react-sticky'; //吸顶
 
 const data = [
   {
@@ -149,31 +149,31 @@ class Home extends React.Component {
         dataSource={this.state.dataSource}
         className="am-list sticky-list"
         useBodyScroll
-        // renderSectionWrapper={sectionID => (
-        //   <StickyContainer
-        //     key={`s_${sectionID}_c`}
-        //     className="sticky-container"
-        //     style={{ zIndex: 4 }}
-        //   />
-        // )}
-        // renderSectionHeader={sectionData => (
-        //   <Sticky>
-        //     {({
-        //       style,
-        //     }) => (
-        //       <div
-        //         className="sticky"
-        //         style={{
-        //           ...style,
-        //           zIndex: 3,
-        //           backgroundColor: parseInt(sectionData.replace('Section ', ''), 10) % 2 ?
-        //             '#5890ff' : '#F8591A',
-        //           color: 'white',
-        //         }}
-        //       >{`Task ${sectionData.split(' ')[1]}`}</div>
-        //     )}
-        //   </Sticky>
-        // )}
+        renderSectionWrapper={sectionID => (
+          <StickyContainer
+            key={`s_${sectionID}_c`}
+            className="sticky-container"
+            style={{ zIndex: 4 }}
+          />
+        )}
+        renderSectionHeader={sectionData => (
+          <Sticky>
+            {({
+              style,
+            }) => (
+              <div
+                className="sticky"
+                style={{
+                  ...style,
+                  zIndex: 3,
+                  backgroundColor: parseInt(sectionData.replace('Section ', ''), 10) % 2 ?
+                    '#5890ff' : '#F8591A',
+                  color: 'white',
+                }}
+              >{`Task ${sectionData.split(' ')[1]}`}</div>
+            )}
+          </Sticky>
+        )}
         renderHeader={() => <span>header</span>}
         renderFooter={() => (<div style={{ padding: 30, textAlign: 'center' }}>
           {this.state.isLoading ? 'Loading...' : 'Loaded'}
